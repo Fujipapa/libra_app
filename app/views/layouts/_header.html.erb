@@ -1,12 +1,15 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <%= link_to "LIBLA", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home",   root_path %></li>
-          <li><%= link_to "Help",   '#' %></li>
-          <li><%= link_to "Log in", '#' %></li>
+<header class="navbar navbar-expand-sm sticky-top navbar-dark bg-info">
+  <div class="container">
+    <%= link_to "LIBRA", "#", class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li><%= link_to "Home", root_path, class: "nav-link active" %></li>
+          <li><%= link_to "Help", '#', class: "nav-link" %></li>
+          <li><%= link_to "Log in", '#', class: "nav-link" %></li>
         </ul>
-      </nav>
     </div>
-</header>
+  </div>
+</header> 
