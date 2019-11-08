@@ -1,14 +1,15 @@
 <header class="navbar navbar-expand-sm sticky-top navbar-dark bg-info">
   <div class="container">
-    <%= link_to "LIBRA", "#", class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+    <%= link_to "LIBRA", "#", class: "navbar-brand mb-0 h1" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
         <ul class="navbar-nav">
-          <li><%= link_to "Home", root_path, class: "nav-link active" %></li>
-          <li><%= link_to "Help", '#', class: "nav-link" %></li>
-          <li><%= link_to "Log in", '#', class: "nav-link" %></li>
+          <li><%= link_to "ホーム", root_path, class: "nav-link active" %></li>
+          <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
+          <li><%= link_to "ログイン", '#', class: "nav-link" %></li>
+          <li><%= link_to "新規登録", '#', class: "nav-link" %></li>
         </ul>
     </div>
   </div>
