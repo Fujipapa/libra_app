@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  #routes to HomeController
   get 'rental/search'
 
   get 'rental/detail'
@@ -7,5 +9,6 @@ Rails.application.routes.draw do
 
   root 'home#top'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #routes to UsersController
+  resources :Users
 end
