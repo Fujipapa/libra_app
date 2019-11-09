@@ -5,6 +5,6 @@ class RentalController < ApplicationController
   def detail
   end
 
-  def rental
+  def rental_form
   end
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'rental/detail'
 
-  get 'rental/rental'
+  get 'rental/rental_form'
 
   root 'home#top'
 
