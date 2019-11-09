@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   root 'home#top'
 
   #routes to UsersController
-  resources :Users
+  resources :users
 end
