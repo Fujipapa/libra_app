@@ -15,6 +15,7 @@ class UsersController < ApplicationController
                         password: params[:password], 
                         role: 1)
         if @user.save
+            session[:user_id] = @user.id
             redirect_to user_url(@user.id)
         else
             render('users/new')

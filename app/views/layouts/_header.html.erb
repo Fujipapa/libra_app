@@ -4,21 +4,26 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
-        <ul class="navbar-nav">
-          <li><%= link_to "ホーム", root_path, class: "nav-link" %></li>
-          <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
-          <li><%= link_to "ログイン", '#', class: "nav-link" %></li>
-          <li><%= link_to "新規登録", '#', class: "nav-link active" %></li>
-        </ul>
-        <!--ログイン後
-        <ul class="navbar-nav">
-          <li><%= link_to "ホーム", root_path, class: "nav-link" %></li>
-          <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
-          <li><%= link_to "マイページ", '#', class: "nav-link" %></li>
-          <li><%= link_to "ログアウト", '#', class: "nav-link active" %></li>
-        </ul>-->
+    <% if @current_user %>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
+          <ul class="navbar-nav">
+            <li><%= link_to "ホーム", root_path, class: "nav-link" %></li>
+            <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
+            <li><%= link_to "マイページ", user_path(@current_user.id), class: "nav-link active" %></li>
+            <li><%= link_to "ログアウト", '#', class: "nav-link" %></li>
+          </ul>
+      </div>
+    <% else %>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
+          <ul class="navbar-nav">
+              <li><%= link_to "ホーム", root_path, class: "nav-link" %></li>
+              <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
+              <li><%= link_to "新規登録", new_user_path, class: "nav-link active" %></li>
+              <li><%= link_to "ログイン", login_path, class: "nav-link" %></li>
+          </ul>
+      </div>
+    <% end %>
+      
 
-    </div>
   </div>
 </header> 
