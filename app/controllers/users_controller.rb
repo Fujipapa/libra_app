@@ -7,9 +7,18 @@ class UsersController < ApplicationController
     end
 
     def new 
+        @user = User.new
     end
 
     def create 
+        @user = User.new(email: params[:email],
+                        password: params[:password], 
+                        role: 1)
+        if @user.save
+            redirect_to user_url(@user.id)
+        else
+            render('users/new')
+        end
     end
 
     def edit 
