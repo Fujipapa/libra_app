@@ -1,2 +1,15 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
+
+ .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+
+    .text-muted {
+        margin: 20px 0; 
+    }
+  }

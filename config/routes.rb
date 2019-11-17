@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   #routes to LoginController
   get '/login', to: 'login#login_form'
-  resources :login, only: %i(create)
+  post '/login', to: 'login#create'
+
+  #routes to Logoutcontroller
+  delete '/logout', to: 'logout#destroy'
 end

@@ -6,10 +6,11 @@ class LoginController < ApplicationController
 
 
   def create
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      flash[:notice] = "ログインしました"
       session[:user_id] = @user.id
-      redirect_to user_url(@user.id)
+      redirect_to root_path
     else
       @password = params[:password]
       @email = params[:email]

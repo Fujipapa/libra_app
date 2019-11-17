@@ -3,9 +3,16 @@
   <%= render 'layouts/head' %>
   <body>
     <%= render 'layouts/header' %>
+    <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <div class="container">
+        <%= flash[:notice] %>
+      </div>
+    </div>
+    <% end %> 
     <div class="container">
       <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
