@@ -1,4 +1,11 @@
 <div class="mx-auto" style="width: 200px;">
-    <h1>Welcome to LIBRA</h1>
+    <% if @current_user %>
+        <ul>
+            <li><%= link_to "本を探す", books_path %></li>
+            <li><%= link_to "本を借りる", "#" %></li>
+        </ul>        
+    <% else %>
+        <h1>Welcome to LIBRA</h1>
+    <% end %>
   
 </div>

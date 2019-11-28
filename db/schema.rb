@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191126163850) do
+ActiveRecord::Schema.define(version: 20191128194953) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.boolean "status", default: true
+    t.integer "genre_id"
+    t.integer "user_id"
+    t.date "rented_date"
+    t.date "return_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "resarvation_user_id"
+    t.string "title_kana"
+    t.index ["title"], name: "index_books_on_title"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

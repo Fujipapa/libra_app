@@ -10,8 +10,10 @@
       </div>
     </div>
     <% end %> 
-    <div class="container">
-      <%= yield %>
+    <div class="body">
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
