@@ -1,0 +1,8 @@
+<%= form_tag("books_path") do %>
+    <div class = "form-group">
+        <label for = "InputKeyword">キーワードで検索できます</label>
+        <input name = "keyword" class = "form-control" id = "InputKeyword" value = "<%= @keyword %>">
+    </div>
+    <button type = "submit" class = "btn btn-info mt-2">検索</button>
+<% end %>
+
