@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Genre.create(genre: "作画")
+Genre.create(genre: "メイキング")
+Book.create(title: '髪の書き方', title_kana: 'カミノカキカタ', genre_id: 1)
+Book.create(title: '髪の書き方', title_kana: 'カミノカキカタ', genre_id: 1)
+Book.create(title: 'デジタルイラストの塗り辞典', title_kana: 'デジタルイラストノヌリジテン', genre_id: 2)
+Book.create(title: 'デジタルイラストの塗り辞典', title_kana: 'デジタルイラストノヌリジテン', genre_id: 2)

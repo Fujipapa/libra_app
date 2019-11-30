@@ -5,7 +5,13 @@ class BookTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup 
-    @book = Book.new(title: "example", status: "可", genre_id: 1, title_kana: "エグザンプル") 
+    @genre = Genre.new(genre: "デッサン")
+    @genre.save
+    @book = Book.new(title: "example", title_kana: "エグザンプル", genre_id: @genre.id) 
+  end
+
+  test "should be valid" do
+    assert @book.valid?
   end
 
   test "title should not be too long" do

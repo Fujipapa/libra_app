@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191130004837) do
+ActiveRecord::Schema.define(version: 20191130093337) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.boolean "status", default: true
     t.integer "genre_id"
-    t.integer "user_id"
     t.date "rented_date"
     t.date "return_date"
     t.datetime "created_at", null: false
@@ -31,6 +30,13 @@ ActiveRecord::Schema.define(version: 20191130004837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre"], name: "index_genres_on_genre", unique: true
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "resarvaions", force: :cascade do |t|
