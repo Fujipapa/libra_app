@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-    has_one :resarvaion
+    has_one :reservaion
     has_one :rental
     belongs_to :genre
 
@@ -13,4 +13,5 @@ class Book < ApplicationRecord
         return Book.all.includes(:genre) unless keyword
         Book.where("title like ? OR title_kana like ?", "%#{keyword}%","%#{keyword}%").includes(:genre)
     end
+
 end

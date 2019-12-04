@@ -12,8 +12,7 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.new(email: params[:email],
-                        password: params[:password], 
-                        role: 1)
+                        password: params[:password])
         if @user.save
             flash[:notice] = "ユーザー情報の登録が完了しました"
             session[:user_id] = @user.id

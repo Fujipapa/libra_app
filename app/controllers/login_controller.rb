@@ -1,7 +1,6 @@
 class LoginController < ApplicationController
 
   def login_form
-    
   end
 
 
@@ -10,8 +9,9 @@ class LoginController < ApplicationController
     if @user && @user.authenticate(params[:password])
       flash[:notice] = "ログインしました"
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to books_path
     else
+      @error_message = "ユーザー名かパスワードが間違っています"
       @password = params[:password]
       @email = params[:email]
       render('login/login_form')

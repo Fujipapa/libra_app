@@ -23,9 +23,9 @@
                     <tbody>
                         <tr>
                             <th scope = "row"><%= book.id %></th>
-                            <td><%= link_to book.title, '#', class: "text-dark"%></td>
+                            <td><%= link_to book.title, book_path(book.id), class: "text-dark"%></td>
                             <td><%= book.genre.genre %></td>
-                            <td><%= book.status ? "可" : "不可" %></td>
+                            <td><%= book.status ? "可" : (@reservations.find_by(book_id: book.id) ? "可" : "不可") %></td>
                             <td><%= book.return_date %></td>
                         </tr>
                     </tbody>

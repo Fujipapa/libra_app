@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :rentals
-    has_many :resarvations
+    has_many :reservations
 
     before_save {email.downcase!}
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -12,6 +12,8 @@ class User < ApplicationRecord
     validates :role, presence: true
     has_secure_password
     validates :password, presence: true, length: {minimum: 6}
+
+    enum role:{user: 0, admin: 1}
 
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

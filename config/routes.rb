@@ -14,4 +14,10 @@ Rails.application.routes.draw do
 
   #routes to BooksController
   resources :books
+
+  #routes to RentalsController
+  resources :rentals, only: %i(index show create destroy)
+
+  #routes to ReservationsController
+  resources :reservations, only: %i(index show create destroy)
 end

@@ -1,6 +1,10 @@
 <header class="navbar navbar-expand-sm sticky-top navbar-dark bg-info">
   <div class="container">
-    <%= link_to "LIBRA", "#", class: "navbar-brand mb-0 h1" %>
+    <% if @current_user %>
+      <%= link_to "LIBRA", books_path, class: "navbar-brand mb-0 h1" %>
+    <% else %>
+      <%= link_to "LIBRA", root_path, class: "navbar-brand mb-0 h1" %> 
+    <% end %>    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,8 +12,8 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
           <ul class="navbar-nav">
             <li><%= link_to @current_user.email, user_path(@current_user.id), class: "nav-link" %></li>
-            <li><%= link_to "ホーム", root_path, class: "nav-link" %></li>
-            <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
+            <li><%= link_to "本を探す", books_path, class: "nav-link" %></li>
+            <li><%= link_to "本を借りる", '#', class: "nav-link" %></li>
             <li><%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %></li>
           </ul>
       </div>
@@ -17,8 +21,6 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
           <ul class="navbar-nav">
               <li><%= link_to "新規登録", new_user_path, class: "nav-link" %></li>
-              <li><%= link_to "ホーム", root_path, class: "nav-link" %></li>
-              <li><%= link_to "ヘルプ", '#', class: "nav-link" %></li>
               <li><%= link_to "ログイン", login_path, class: "nav-link" %></li>
           </ul>
       </div>
