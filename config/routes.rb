@@ -20,4 +20,8 @@ Rails.application.routes.draw do
 
   #routes to ReservationsController
   resources :reservations, only: %i(index show create destroy)
+
+  #routes to MesController
+  get 'me/confirmation', to: 'mes#confirmation'
+  resource :me, only: %i(show edit update destroy)
 end

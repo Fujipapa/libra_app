@@ -1,3 +1,5 @@
+<h4 class = "pb-2">本を探す</h4>
+
 <%= form_tag(books_path, method: "get") do %>
     <div class = "form-group">
         <label for = "InputKeyword">キーワードで検索できます</label>
@@ -25,7 +27,7 @@
                             <th scope = "row"><%= book.id %></th>
                             <td><%= link_to book.title, book_path(book.id), class: "text-dark"%></td>
                             <td><%= book.genre.genre %></td>
-                            <td><%= book.status ? "可" : (@reservations.find_by(book_id: book.id) ? "可" : "不可") %></td>
+                            <td><%= book.status ? "可" : "不可" %></td>
                             <td><%= book.return_date %></td>
                         </tr>
                     </tbody>

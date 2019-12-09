@@ -9,13 +9,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     test "login with valid information" do
         get login_path
         post login_path, params: {email: @user.email,
-                                    password: 'password'}
-        assert_redirected_to root_url
+                                    password: 'password',
+                                    password_confirmation: 'password'}
+        assert_redirected_to books_path
         follow_redirect!
-        assert_template 'home/top'
+        assert_template 'books/index'
         assert_select "a[href=?]", login_path, count: 0
-        assert_select "a[href=?]", root_path
+        assert_select "a[href=?]", books_path
         assert_select "a[href=?]", logout_path
-        assert_select "a[href=?]", user_path(@user)
+        assert_select "a[href=?]", me_path
     end
 end

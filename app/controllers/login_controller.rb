@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
+  before_action :forbid_login_user
 
   def login_form
   end
@@ -11,7 +12,7 @@ class LoginController < ApplicationController
       session[:user_id] = @user.id
       redirect_to books_path
     else
-      @error_message = "ユーザー名かパスワードが間違っています"
+      @error_message = "メールアドレスまたはパスワードが間違っています"
       @password = params[:password]
       @email = params[:email]
       render('login/login_form')

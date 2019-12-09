@@ -16,7 +16,7 @@
                         <th scope = "row"><%= @book.id %></th>
                         <td><%= @book.title %></td>
                         <td><%= @book.genre.genre %></td>
-                        <td><%= @book.status ? "可" : (@reservations.find_by(book_id: @book.id) ? "可" : "不可") %></td>
+                        <td><%= @book.status ? "可" : "不可" %></td>
                         <td><%= @book.return_date %></td>
                     </tr>
                 </tbody>
@@ -25,10 +25,9 @@
     </table>    
 </div>
 
-<% if @reservation %>
-    <% if @reservations.find_by(book_id: @book.id) %>
+<% if @book.reservation.present? %>
+    <% if @book.reservation.user_id == @current_user.id %>
         <p>この本は既に予約済みです</p>
-        <%= link_to "本を借りる", '#', class: "btn btn-info" %>
     <% else %>
         <p>現在，この本は予約・貸出ができません</p>
     <% end %>

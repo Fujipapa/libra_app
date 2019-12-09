@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    before_action :forbid_login_user, {only: [:new, :create]}
+    before_action :autenticate_user, {only: [:index, :show, :edit, :update, :destroy]}
+    before_action :ensure_admin_user, {only: [:index, :show, :edit, :update, :destroy]}
 
     def index
     end
@@ -16,7 +19,7 @@ class UsersController < ApplicationController
         if @user.save
             flash[:notice] = "ユーザー情報の登録が完了しました"
             session[:user_id] = @user.id
-            redirect_to user_url(@user.id)
+            redirect_to me_url
         else
             render('users/new')
         end

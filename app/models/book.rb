@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-    has_one :reservaion
-    has_one :rental
+    has_one :reservation, dependent: :destroy
+    has_one :rental, dependent: :destroy
     belongs_to :genre
 
     validates :title, presence: true, length: {maximum: 255}
@@ -10,8 +10,8 @@ class Book < ApplicationRecord
     scope :order_by_char, -> {order('title_kana COLLATE "C" ASC')}
 
     def self.search(keyword)
-        return Book.all.includes(:genre) unless keyword
-        Book.where("title like ? OR title_kana like ?", "%#{keyword}%","%#{keyword}%").includes(:genre)
+        return Book.all.includes(:genre, :reservation) unless keyword
+        Book.where("title like ? OR title_kana like ?", "%#{keyword}%","%#{keyword}%").includes(:genre, :reservation)
     end
 
 end

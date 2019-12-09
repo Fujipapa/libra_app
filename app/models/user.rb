@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :rentals
-    has_many :reservations
+    has_many :rentals, dependent: :destroy
+    has_many :reservations, dependent: :destroy
 
     before_save {email.downcase!}
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
     validates :role, presence: true
     has_secure_password
-    validates :password, presence: true, length: {minimum: 6}
+    validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
     enum role:{user: 0, admin: 1}
 

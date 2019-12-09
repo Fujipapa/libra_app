@@ -1,0 +1,19 @@
+<% if @error_message %>
+    <p class = "text-danger"><%= @error_message %></p>
+<% end %>
+
+<%= form_tag("/me", method: "PATCH") do %>
+    <div class = "form-group">
+        <label for = "InputNewEmail">新しいメールアドレスを入力してください（未入力の場合は変更されません）</label>
+        <input name = "email" class = "form-control" id = "InputNewEmail" value = "<%= @email %>">
+    </div>
+    <div class = "form-group">
+        <label for = "InputNewPassword">新しいパスワードを入力してください（未入力の場合は変更されません）</label>
+        <input type = "password" class = "form-control" id = "InputNewPassword" name = "new_password" value = "<%= @new_password %>">
+    </div>
+    <div class = "form-group">
+        <label for = "InputOldPassword">現在のパスワードを入力してください</label>
+        <input type = "password" class = "form-control" id = "InputOldPassword" name = "password" value = "<%= @password %>">
+    </div>
+    <button type = "submit" class = "btn btn-info mt-2">保存する</button>
+<% end %>
