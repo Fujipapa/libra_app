@@ -1,0 +1,39 @@
+<% form_tag("#") do %>
+    <input type = "hidden" name = "book_id" value = ""
+    ><label class = "btn btn-info">コードを読み込む
+        <input  class = "d-none"
+        type = "file"
+        accept = "image/*"
+        capture = "environment"
+        onclick = "return showQRIntro();"
+        onchange = "openQRCamera(this);"
+        tabindex = "-1">
+    </label>
+<% end %>
+
+<%= javascript_include_tag "qr_packed.js" %>
+<script>
+    function openQRCamera(node) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        node.value = "";
+        qrcode.callback = function(res) {
+            if(res instanceof Error) {
+                alert("QRコードが見つかりませんでした。もう一度撮影してください。");
+            } else {
+                node.parentNode.previousElementSibling.value = res;
+            }
+        };
+        qrcode.decode(reader.result);
+    };
+    reader.readAsDataURL(node.files[0]);
+    }
+ 
+    function showQRIntro() {
+        return confirm("端末のカメラを使用して，QRコードを読み取ります。");
+    }
+</script>
+
+
+
+

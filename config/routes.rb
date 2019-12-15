@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   resources :books
 
   #routes to RentalsController
-  resources :rentals, only: %i(index show create destroy)
+  get 'rental', to: 'rentals#rental_form'
+  resources :rentals, only: %i(index create destroy)
 
   #routes to ReservationsController
   resources :reservations, only: %i(index show create destroy)
