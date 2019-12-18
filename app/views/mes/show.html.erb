@@ -53,6 +53,7 @@
                         <th>タイトル</th>
                         <th>ジャンル</th>
                         <th>返却予定日</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +64,7 @@
                                 <td><%= rental.book.title%></td>
                                 <td><%= rental.book.genre.genre %></td>
                                 <td><%= rental.book.return_date %></td>
+                                <td><%= link_to "返却する", return_path(rental.book.id), class: "text-success" %></td>
                             </tr>
                         </tbody>
                     <% end %>

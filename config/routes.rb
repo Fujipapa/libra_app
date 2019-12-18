@@ -25,4 +25,8 @@ Rails.application.routes.draw do
   #routes to MesController
   get 'me/confirmation', to: 'mes#confirmation'
   resource :me, only: %i(show edit update destroy)
+
+  #routes to ReturnsController
+  get '/return/:id', to: 'returns#return_form', as: 'return'
+  post '/return/:id', to: 'returns#destroy'
 end
