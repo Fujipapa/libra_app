@@ -1,40 +1,36 @@
 <div class = "table-responsive-sm">
-    <table class = "table table-striped">
-        <table class = "table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>タイトル</th>
-                    <th>ジャンル</th>
-                    <th>貸出</th>
-                    <th>返却予定日</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tbody>
-                    <tr>
-                        <th scope = "row"><%= @book.id %></th>
-                        <td><%= @book.title %></td>
-                        <td><%= @book.genre.genre %></td>
-                        <td><%= @book.status ? "可" : "不可" %></td>
-                        <td><%= @book.return_date %></td>
-                    </tr>
-                </tbody>
-            </tbody>
-        </table>
-    </table>    
+	<table class = "table table-striped">
+		<table class = "table table-bordered">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>タイトル</th>
+					<th>ジャンル</th>
+					<th>貸出</th>
+					<th>返却予定日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tbody>
+					<tr>
+						<th scope = "row"><%= @book.id %></th>
+						<td><%= @book.title %></td>
+						<td><%= @book.genre.genre %></td>
+						<td><%= @rental_propriety %></td>
+						<td><%= @book.return_date %></td>
+					</tr>
+				</tbody>
+			</tbody>
+		</table>
+	</table>    
 </div>
 
-<% if @book.reservation.present? %>
-    <% if @book.reservation.user_id == @current_user.id %>
-        <p>この本は既に予約済みです</p>
-    <% else %>
-        <p>現在，この本は予約・貸出ができません</p>
-    <% end %>
+<% if @can_reserve %>
+  <%= form_tag("/reservations") do %>
+    <input type = "hidden" name = "book_id" value = "<%= @book_id %>">
+    <button type = "submit" class = "btn btn-info mt-2">予約する</button>
+  <% end %>
 <% else %>
-    <%= form_tag("/reservations") do %>
-        <input type = "hidden" name = "book_id" value = "<%= @book_id %>">
-        <button type = "submit" class = "btn btn-info mt-2">予約する</button>
-    <% end %>
+	<p>現在予約できません</p>
 <% end %>
 

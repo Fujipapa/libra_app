@@ -10,8 +10,9 @@ class Book < ApplicationRecord
     scope :order_by_char, -> {order('title_kana COLLATE "C" ASC')}
 
     def self.search(keyword)
-        return Book.all.includes(:genre, :reservation) unless keyword
-        Book.where("title like ? OR title_kana like ?", "%#{keyword}%","%#{keyword}%").includes(:genre, :reservation)
+			return Book.all.includes(:genre, :reservation) unless keyword
+			Book.where("title like ? OR title_kana like ?", "%#{keyword}%","%#{keyword}%").includes(:genre, :reservation)
     end
+
 
 end
