@@ -1,6 +1,6 @@
 class Genre < ApplicationRecord
-    has_many :books
+  has_many :books
 
-    validates :genre, presence: true, length: {maximum: 255},
-                      uniqueness: true
+  validates :genre, presence: true, length: { maximum: 255 },
+                    uniqueness: true
 end
