@@ -10,10 +10,10 @@ class RentalsController < ApplicationController
 
         if !@book.present?
             flash[:notice] = "コードを読み取った後に「借りる」を押してください"
-            render("rentals/rental_form") and return
+            return render("rentals/rental_form")
         elsif Reservation.of_other(@user, @book).present?
             flash[:notice] = "この本は現在予約されています"
-            render("rentals/rental_form") and return
+            return render("rentals/rental_form")
         elsif Rental.create(user: @user, book: @book)
             @reservation = @user.reservations.find_by(book: @book)
             @reservation.destroy if @reservation.present?
@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
             redirect_to me_path
         else
             flash[:notice] = "この本は現在貸出できません"
-            render("rentals/rental_form") and return
+            return render("rentals/rental_form")
         end     
     end
 

@@ -9,4 +9,8 @@ module ApplicationHelper
         end
     end
 
+    def propriety_char(bool)
+        bool ? "可" : "不可"
+		end
+
 end

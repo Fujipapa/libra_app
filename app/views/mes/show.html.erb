@@ -27,9 +27,8 @@
                         <tbody>
                             <tr>
                                 <th scope = "row"><%= reservation.book.id %></th>
-                                <td><%= reservation.book.title%></td>
+                                <td><%= link_to reservation.book.title, book_path(reservation.book.id), class: "text-dark" %></td>
                                 <td><%= reservation.book.genre.genre %></td>
-                                <td><%= reservation.book.status ? "可" : "不可" %></td>
                                 <td><%= reservation.book.return_date %></td>
                             </tr>
                         </tbody>
