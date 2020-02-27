@@ -1,0 +1,32 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+
+
+AsciiComments:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Rails:
+  Enabled: true
+Metrics/BlockLength:
+  Max: 40
+Metrics/LineLength:
+  Max: 125
+ClassAndModuleChildren:
+  Enabled: false
+Style/NumericLiteralPrefix:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 20
+Metrics/ClassLength:
+  Max: 150
