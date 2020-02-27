@@ -27,7 +27,7 @@
 
 <% if @can_reserve %>
   <%= form_tag("/reservations") do %>
-    <input type = "hidden" name = "book_id" value = "<%= @book_id %>">
+    <input type = "hidden" name = "book_id" value = "<%= @book.id %>">
     <button type = "submit" class = "btn btn-info mt-2">予約する</button>
   <% end %>
 <% else %>
